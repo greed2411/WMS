@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Reports</title>
+    <style media="screen">
+      .card-img-second{
+        height: 100px;
+        width: 100px;
+        margin: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+      #map {
+        height: 50%;
+        width: 50%;
+        margin: auto;
+        /*width: 100px;
+        height: 100px;*/
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="icon" href="images/shot_1282691611 (copy).ico">
+  </head>
+  <body>
+<nav class="navbar navbar-toggleable-md navbar navbar-inverse bg-inverse">
+      <div class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">WMS</a>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="bleh.html">Refresh<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Reach Out
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="https://github.com/minosai">Yaswant</a>
+                <a class="dropdown-item" href="https://www.facebook.com/souldiv?fref=ts">Amrut</a>
+                <a class="dropdown-item" href="https://github.com/Jaiimmortal">Jaivarsan</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+<br><br>
+<div class="container-fluid">
+	     <div class="row">
+         <div class="col-lg-2"></div>
+		       <div class="col-lg-2">
+    	        <div class="card">
+      	         <img class="card-img-top" src="images/Sun.svg" alt="Card image cap">
+				             <div class="card-block">
+                       <h4 class="temperature" align="center">Value °C</h4>
+    					              <p class="card-text" align="center">Temperature</p>
+                      </div>
+              </div>
+          </div>
+      <div class="col-lg-1"></div>
+      <div class="col-lg-2">
+            	<div class="card">
+              	<img class="card-img-top" src="images/9.svg" alt="Card image cap">
+        				<div class="card-block">
+        					<h4 class="humidity" align="center">Value %</h4>
+                    <p class="card-text" align="center">Humidity</p>
+                  </div>
+                </div>
+      </div>
+      <div class="col-lg-1"></div>
+      <div class="col-lg-2">
+        <div class="card">
+          <img class="card-img-top" src="images/24.svg" alt="Card image cap">
+          <div class="card-block">
+            <h4 class="pressure" align="center">Value atm</h4>
+            <p class="card-text" align="center">Pressure</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4"></div>
+      </div>
+</div>
+<br><br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-2"></div>
+
+    <div class="col-lg-2">
+       <div class="card">
+          <img class="card-img-second" src="images/calendar (1).svg" alt="Card image cap">
+              <div class="card-block">
+                <h4 class="date" align="center">Value</h4>
+                     <p class="card-text" align="center">Date</p>
+               </div>
+       </div>
+   </div>
+   <div class="col-lg-1"></div>
+   <div class="col-lg-2">
+      <div class="card">
+         <img class="card-img-second" src="images/clock.svg" alt="Card image cap" height=120px>
+             <div class="card-block">
+               <h4 class="time" align="center">Value</h4>
+                    <p class="card-text" align="center">Time</p>
+              </div>
+      </div>
+  </div>
+    <div class="col-lg-1"></div>
+  <div class="col-lg-2">
+     <div class="card">
+        <img class="card-img-second" src="images/placeholder.svg" alt="Card image cap">
+            <div class="card-block">
+              <h4 class="location" align="center"><a href="#map">
+On the map..</a></h4>
+                   <p class="card-text" align="center">Location</p>
+             </div>
+     </div>
+ </div>
+  <div class="col-lg-2"></div>
+  </div>
+</div><br><br>
+  <div id="map"></div>
+  <br><br>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+
+
+    var test=document.getElementsByTagName("h4");
+    $(function(){
+       $.ajax({
+          type: "GET",
+           url: 'https://api.thingspeak.com/channels/236485/feed/last.json?apikey=YWKVPVWJIPK4PVP7',
+           success: function(data){
+               console.log('success ',data);
+               test[0].innerHTML=""+data.field1+" °C";
+               test[1].innerHTML=""+data.field2+" %";
+               test[2].innerHTML=""+data.field3+" hpa";
+               var tea=data.created_at;
+               function convertLocalDateToUTCDate(date) {
+                 date = new Date(date);
+                 var localTime = date.getTime();
+                 date = localTime;
+                 date = new Date(date);
+                 return date;
+               };
+                var kit = ""+convertLocalDateToUTCDate(new Date(tea),false);
+                var day=kit.substring(4,15);
+                var time=kit.substring(16,39);
+                time=time.replace('GMT+0530 (IST)','IST');
+                test[3].innerHTML = day;
+                test[4].innerHTML = time;
+
+
+           }
+       });
+    });
+
+    function initMap() {
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 15
+      });
+      var infoWindow = new google.maps.InfoWindow({map: map});
+
+      // Try HTML5 geolocation.
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          infoWindow.setPosition(pos);
+          infoWindow.setContent('Location found.');
+          map.setCenter(pos);
+        }, function() {
+          handleLocationError(true, infoWindow, map.getCenter());
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+      }
+    }
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      infoWindow.setPosition(pos);
+      infoWindow.setContent(browserHasGeolocation ?
+                            'Error: The Geolocation service failed.' :
+                            'Error: Your browser doesn\'t support geolocation.');
+    }
+
+
+        // function myFunction() {
+        //     var x = document.getElementById('map');
+        //     if (x.style.display === 'none') {
+        //         x.style.display = 'block';
+        //     } else {
+        //         x.style.display = 'none';
+        //     }
+        // }
+
+// function HideContent(d) {
+// document.getElementById(d).style.display = "none";
+// }
+// function ShowContent(d) {
+// document.getElementById(d).style.display = "block";
+// }
+// function ReverseDisplay(d) {
+// if(document.getElementById(d).style.display == "none") { document.getElementById(d).style.display = "block"; }
+// else { document.getElementById(d).style.display = "none"; }
+// }
+
+
+
+    </script>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+
+      // function initMap() {
+      //   var map = new google.maps.Map(document.getElementById('map'), {
+      //     center: {lat: -34.397, lng: 150.644},
+      //     zoom: 6
+      //   });
+      //   var infoWindow = new google.maps.InfoWindow({map: map});
+      //
+      //   // Try HTML5 geolocation.
+      //   if (navigator.geolocation) {
+      //     navigator.geolocation.getCurrentPosition(function(position) {
+      //       var pos = {
+      //         lat: position.coords.latitude,
+      //         lng: position.coords.longitude
+      //       };
+      //
+      //       infoWindow.setPosition(pos);
+      //       console.log(pos);
+      //       infoWindow.setContent('Location found.');
+      //       map.setCenter(pos);
+      //     }, function() {
+      //       handleLocationError(true, infoWindow, map.getCenter());
+      //     });
+      //   } else {
+      //     // Browser doesn't support Geolocation
+      //     handleLocationError(false, infoWindow, map.getCenter());
+      //   }
+      // }
+      //
+      // function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+      //   infoWindow.setPosition(pos);
+      //   infoWindow.setContent(browserHasGeolocation ?
+      //                         'Error: The Geolocation service failed.' :
+      //                         'Error: Your browser doesn\'t support geolocation.');
+      // }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCneO4SrlRH8lbhAxpJgb5FSnvRskSKn5Q&callback=initMap">
+    </script>
+</html>
