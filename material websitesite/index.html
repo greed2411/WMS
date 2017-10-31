@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+
+<html>
+    
+    <head>
+    <meta charset="utf-8">
+      <title>WMS</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">      
+      <link rel="stylesheet" href="css/materialize.css">
+      <script type="text/javascript" href="js/jquery-2.1.1.min.js"></script>
+      <script type="text/javascript" href="js/materialize.js"></script>
+      <script type="text/javascript" href="js/materialize.min.1.js"></script>
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      	  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+  </head>
+    
+  <body>
+    
+      <!--navbar-->
+      <nav>
+        <div class="nav-wrapper blue">
+          <a href="#slide-out" data-activates="slide-out" class="button-collapse" style="padding-left:1%"><i class="material-icons">menu</i></a>
+          <a href="#" class="brand-logo">WMS <i class="material-icons">cloud</i></a>
+        </div>
+      </nav>
+      
+      <!--side nav-->
+      <div class="side-nav">
+      <ul id="slide-out" class="side-nav">
+        <li><a href="#" class="active">Reach out</a></li>
+        <li><div class="divider"></div></li>
+        <li><a class="waves-effect" href="#">Amrut</a></li>
+        <li><a class="waves-effect" href="http://www.github.com/jaiimortal">Jaivarsan</a></li>
+        <li><a class="waves-effect" href="http://www.github.com/minosai">Yaswant</a></li>
+      </ul>
+      </div>
+      
+      <!--fixed FAB-->
+      <div class="fixed-action-btn tooltipped" data-position="left" data-delay="50" data-tooltip="Refresh">
+        <a class="btn-floating btn-large blue" href="index.html">
+          <i class="large material-icons">refresh</i>
+        </a>
+      </div>
+      
+      <!--card-->
+      
+      <div class="row">
+        <div class="col s12 m6 offset-l3 ">
+          <div class="card">
+            <div class="card-content">
+              <p class="center" id="date_time">date/time</p>
+            </div>
+            <div class="card-content grey lighten-4">
+              <div id="temp" class="center" style="font-weight:1500"><h1 id="temp_value">Value</h1></div>
+              <div id="prsr" class="center"><h1 id="prsr_value">Value</h1></div>
+              <div id="hum" class="center"><h1 id="hum_value">Value</h1></div>
+            </div>
+            <!--tabs-->
+            <div class="card-tabs white-text">
+              <ul class="tabs tabs-fixed-width blue">
+                <li class="tab"><a href="#temp" class="white-text">Temperature</a></li>
+                <li class="tab"><a href="#prsr" class="white-text">Pressure</a></li>
+                <li class="tab"><a href="#hum" class="white-text">Humidity</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <script>
+          
+          /*side nav initialize*/
+          $('.button-collapse').sideNav();
+          
+      </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>
+              var temp=document.getElementById("temp_value");
+              var prsr=document.getElementById("prsr_value");
+              var hum=document.getElementById("hum_value");
+              var dt=document.getElementById("date_time");
+              console.log(temp);
+              console.log(prsr);
+              console.log(hum);
+              console.log(dt);
+              dt.innerHTML="date - time";
+                $(function(){
+                   $.ajax({
+                      type: "GET",
+                       url: 'https://api.thingspeak.com/channels/236485/feed/last.json?apikey=YWKVPVWJIPK4PVP7',
+                       success: function(data){
+                           console.log('success ',data);
+                           temp.innerHTML=""+data.field1+" °C";
+                           hum.innerHTML=""+data.field2+" %";
+                           prsr.innerHTML=""+data.field3+" hpa";
+                           var tea=data.created_at;
+                       function convertLocalDateToUTCDate(date) {
+                         date = new Date(date);
+                         var localTime = date.getTime();
+                         date = localTime;
+                         date = new Date(date);
+                         return date;
+                       };
+                        var kit = ""+convertLocalDateToUTCDate(new Date(tea),false);
+                        var day=kit.substring(4,15);
+                        var time=kit.substring(16,39);
+                        time=time.replace('GMT+0530 (IST)','IST');
+                        dt.innerHTML=""+day;
+                        console.log("Date: "+day+" Time: "+time);
+                       } 
+                   }); 
+                });
+        </script>
+      
+  </body>
+
+</html>
